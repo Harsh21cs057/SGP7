@@ -1,0 +1,139 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url(/static/assets/img/background.png);
+    color: #333;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6A36FF;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+header nav a:hover {
+    color: #6A36FF;
+}
+
+/* Main section */
+main {
+    text-align: center;
+    padding-top: 100px;
+}
+
+main h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+main p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.form-container {
+    margin-top: 30px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #6A36FF;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.tab.active {
+    background-color: white;
+    color: #6A36FF;
+}
+
+.tab:hover {
+    background-color: #8E62FF;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+form input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #6A36FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #8E62FF;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: gray;
+}
+
+.disclaimer a {
+    color: #6A36FF;
+    text-decoration: none;
+}
+
+.disclaimer a:hover {
+    text-decoration: underline;
+}

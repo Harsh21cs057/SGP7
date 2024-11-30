@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity Data Fetcher</title>
+</head>
+<body>
+  <h1>Entity Data Fetcher</h1>
+  <form id="entityForm">
+    <label for="entity">Select Entity:</label>
+    <select id="entity" required>
+      <option value="">--Select--</option>
+      <option value="email">Email</option>
+      <option value="username">Username</option>
+      <option value="phone">Phone Number</option>
+    </select>
+
+    <label for="inputValue">Enter Value:</label>
+    <input type="text" id="inputValue" required>
+
+    <button type="submit">Fetch Data</button>
+  </form>
+
+  <h2>Result:</h2>
+  <pre id="result"></pre>
+
+  <script>
+    document.getElementById("entityForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const entity = document.getElementById("entity").value;
+        const inputValue = document.getElementById("inputValue").value;
+
+        if (!entity || !inputValue) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        // Send data to the Flask backend
+        try {
+            const response = await fetch("/fetch-entity-data", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ entity, inputValue }),
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                document.getElementById("result").textContent = JSON.stringify(result, null, 2);
+            } else {
+                const error = await response.json();
+                document.getElementById("result").textContent = error.error || "Error fetching data.";
+            }
+        } catch (err) {
+            console.error(err);
+            document.getElementById("result").textContent = "An error occurred.";
+        }
+    });
+</script>
+
+</body>
+</html>
